@@ -59,6 +59,8 @@ dependencies {
     // PlaceHolderView
     compile 'com.mindorks:placeholderview:0.7.3'
 
+    compile 'com.yuyakaido.android:card-stack-view:1.0.0-beta8'
+
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.6.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
