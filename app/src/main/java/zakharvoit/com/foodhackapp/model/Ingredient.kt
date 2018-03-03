@@ -1,4 +1,6 @@
 package zakharvoit.com.foodhackapp.model
 
-class Ingredient {
-}
+import android.graphics.drawable.Drawable
+import java.net.URL
+
+class Ingredient(val title: String, val image: Drawable)

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Foodhack App</string>
+    <string name="get_recipe_list">Получить список блюд</string>
 </resources>
