@@ -5,6 +5,7 @@ class RecipeIngredient(
 )
 
 class RecipePreview(
+        val title: String,
         val url: String,
         val cookTimeMinutes: Int,
         val imageUrl: String

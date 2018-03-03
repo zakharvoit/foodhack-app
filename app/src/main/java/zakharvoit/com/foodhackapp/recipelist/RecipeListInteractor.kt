@@ -10,7 +10,7 @@ class RecipeListInteractor(val api: FoodhackApi) : RecipeListContract.Interactor
         return api.getDishes(DishesRequest(goodIngredients))
                 .map { response ->
                     response.dishes.map { dish ->
-                        RecipePreview(dish.url, dish.timeCooking, dish.img)
+                        RecipePreview(dish.name, dish.url, dish.timeCooking, dish.img)
                     }
                 }
     }

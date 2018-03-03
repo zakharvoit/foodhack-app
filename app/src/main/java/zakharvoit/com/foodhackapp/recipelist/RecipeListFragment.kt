@@ -3,6 +3,8 @@ package zakharvoit.com.foodhackapp.recipelist
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.Toast
@@ -30,12 +32,18 @@ class RecipeListFragment : AppCompatActivity(), RecipeListContract.View {
 
         recipeListView = findViewById(R.id.recipe_list_view)
         recipeListAdapter = RecipeListAdapter()
+        val layoutManager = LinearLayoutManager(this)
+        recipeListView.layoutManager = layoutManager
+        recipeListView.addItemDecoration(DividerItemDecoration(this,
+                layoutManager.orientation))
         recipeListView.adapter = recipeListAdapter
 
         presenter.start()
     }
 
     override fun setRecipes(recipes: List<RecipePreview>) {
-        recipeListAdapter.list = ArrayList(recipes)
+        recipeListAdapter.list.clear()
+        recipeListAdapter.list.addAll(recipes)
+        recipeListAdapter.notifyDataSetChanged()
     }
 }

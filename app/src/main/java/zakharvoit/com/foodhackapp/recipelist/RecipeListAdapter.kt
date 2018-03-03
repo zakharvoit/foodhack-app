@@ -11,7 +11,6 @@ import zakharvoit.com.foodhackapp.model.RecipePreview
 class RecipeListAdapter() : RecyclerView.Adapter<RecipeListAdapter.ViewHolder>() {
     val isLoading = true
     var list = ArrayList<RecipePreview>()
-        set(value) { field.clear(); field.addAll(value); notifyDataSetChanged(); }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
