@@ -12,6 +12,8 @@ import com.yuyakaido.android.cardstackview.SwipeDirection
 import org.koin.android.ext.android.inject
 import zakharvoit.com.foodhackapp.R
 import zakharvoit.com.foodhackapp.databinding.IngredientChooseFragmentBinding
+import zakharvoit.com.foodhackapp.ingredientchoose.IngredientChooseContract
+import zakharvoit.com.foodhackapp.ingredientchoose.IngredientsAdapter
 import zakharvoit.com.foodhackapp.model.Ingredient
 import zakharvoit.com.foodhackapp.model.IngredientChooseOption
 
