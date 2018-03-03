@@ -9,12 +9,12 @@ class IngredientChoosePresenter(private val interactor: IngredientChooseContract
     override lateinit var view: IngredientChooseContract.View
 
     override fun start() {
-        interactor.getNewRandomIngredient()
+        interactor.getRandomIngredients()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                { ingredient ->
-                    view.setIngredient(ingredient)
+                { ingredients ->
+                    view.setIngredients(ingredients)
                 },
                 { throwable ->
                     view.onError(throwable.localizedMessage)

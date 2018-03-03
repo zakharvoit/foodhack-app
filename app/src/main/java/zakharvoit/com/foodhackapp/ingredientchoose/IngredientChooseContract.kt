@@ -11,12 +11,12 @@ interface IngredientChooseContract {
     }
 
     interface Interactor {
-        fun getNewRandomIngredient(): Single<Ingredient>
+        fun getRandomIngredients(): Single<List<Ingredient>>
         fun setIngredientChooseOption(ingredient: Ingredient, option: IngredientChooseOption)
     }
 
     interface View : BaseView<Presenter> {
-        fun setIngredient(ingredient: Ingredient)
+        fun setIngredients(ingredients: List<Ingredient>)
         fun onError(text: String)
     }
 }
