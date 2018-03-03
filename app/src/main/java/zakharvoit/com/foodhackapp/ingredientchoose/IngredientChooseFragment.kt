@@ -6,16 +6,16 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import com.yuyakaido.android.cardstackview.CardStackView
 import com.yuyakaido.android.cardstackview.SwipeDirection
 import org.koin.android.ext.android.inject
 import zakharvoit.com.foodhackapp.R
 import zakharvoit.com.foodhackapp.databinding.IngredientChooseFragmentBinding
-import zakharvoit.com.foodhackapp.ingredientchoose.IngredientChooseContract
-import zakharvoit.com.foodhackapp.ingredientchoose.IngredientsAdapter
 import zakharvoit.com.foodhackapp.model.Ingredient
 import zakharvoit.com.foodhackapp.model.IngredientChooseOption
+import zakharvoit.com.foodhackapp.recipelist.RecipeListContract
 
 class IngredientChooseFragment : Fragment(), IngredientChooseContract.View, CardStackView.CardEventListener {
     override val presenter by inject<IngredientChooseContract.Presenter>()
@@ -41,6 +41,8 @@ class IngredientChooseFragment : Fragment(), IngredientChooseContract.View, Card
         ingredientViewAdapter = IngredientsAdapter(context!!)
         ingredientView.setAdapter(ingredientViewAdapter)
         ingredientView.setCardEventListener(this)
+        val button = view.findViewById<Button>(R.id.show_recipes_button)
+        button.setOnClickListener { presenter.showRecipes() }
         presenter.start()
     }
 

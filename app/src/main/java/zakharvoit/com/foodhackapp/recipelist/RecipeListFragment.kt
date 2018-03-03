@@ -3,13 +3,13 @@ package zakharvoit.com.foodhackapp.recipelist
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
 import org.koin.android.ext.android.inject
 import zakharvoit.com.foodhackapp.R
-import zakharvoit.com.foodhackapp.model.Recipe
+import zakharvoit.com.foodhackapp.model.RecipePreview
 
+// TODO: remove arguments, add save restore logic
 class RecipeListFragment : Fragment(), RecipeListContract.View {
     override val presenter by inject<RecipeListContract.Presenter>()
     private lateinit var recipeListView: RecyclerView
@@ -19,8 +19,8 @@ class RecipeListFragment : Fragment(), RecipeListContract.View {
         presenter.view = this
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun onError(error: String) {
+        Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +33,7 @@ class RecipeListFragment : Fragment(), RecipeListContract.View {
         presenter.start()
     }
 
-    override fun setRecipes(recipes: List<Recipe>) {
+    override fun setRecipes(recipes: List<RecipePreview>) {
         recipeListAdapter.list = ArrayList(recipes)
     }
 }

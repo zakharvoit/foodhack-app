@@ -1,4 +1,4 @@
-package zakharvoit.com.foodhackapp
+package zakharvoit.com.foodhackapp.common
 
 interface BasePresenter<T> {
     var view: T

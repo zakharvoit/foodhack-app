@@ -1,17 +1,16 @@
 package zakharvoit.com.foodhackapp.recipelist
 
-import android.arch.lifecycle.ViewModel
 import android.databinding.DataBindingUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import zakharvoit.com.foodhackapp.R
 import zakharvoit.com.foodhackapp.databinding.RecipeListItemBinding
-import zakharvoit.com.foodhackapp.model.Recipe
+import zakharvoit.com.foodhackapp.model.RecipePreview
 
 class RecipeListAdapter() : RecyclerView.Adapter<RecipeListAdapter.ViewHolder>() {
     val isLoading = true
-    var list = ArrayList<Recipe>()
+    var list = ArrayList<RecipePreview>()
         set(value) { field.clear(); field.addAll(value); notifyDataSetChanged(); }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

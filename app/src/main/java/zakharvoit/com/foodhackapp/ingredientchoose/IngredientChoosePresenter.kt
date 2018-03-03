@@ -4,13 +4,17 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import zakharvoit.com.foodhackapp.model.Ingredient
 import zakharvoit.com.foodhackapp.model.IngredientChooseOption
+import zakharvoit.com.foodhackapp.recipelist.RecipeListContract
 
 private const val INGREDIENTS_THRESHOLD = 5
 
-class IngredientChoosePresenter(private val interactor: IngredientChooseContract.Interactor) :
+class IngredientChoosePresenter(
+        private val interactor: IngredientChooseContract.Interactor,
+        private val recipesRouter: RecipeListContract.Router) :
         IngredientChooseContract.Presenter {
 
     override lateinit var view: IngredientChooseContract.View
+
     private val ingredients: ArrayList<Ingredient> = ArrayList()
 
     override fun start() {
@@ -35,5 +39,12 @@ class IngredientChoosePresenter(private val interactor: IngredientChooseContract
         this.ingredients.remove(ingredient)
         interactor.setIngredientChooseOption(ingredient, option)
         if (this.ingredients.size < INGREDIENTS_THRESHOLD) requestMoreIngredients()
+    }
+
+    override fun showRecipes() {
+        interactor.getLikesInfo()
+                .subscribe { (good, bad) ->
+                    recipesRouter.showRecipes(good, bad)
+                }
     }
 }

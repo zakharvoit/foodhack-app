@@ -1,8 +1,10 @@
-package zakharvoit.com.foodhackapp
+package zakharvoit.com.foodhackapp.main
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import org.koin.android.ext.android.inject
+import zakharvoit.com.foodhackapp.common.BaseActivity
+import zakharvoit.com.foodhackapp.R
 import zakharvoit.com.foodhackapp.ingredientchoose.IngredientChooseContract
 
 class MainActivity : BaseActivity() {

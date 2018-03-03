@@ -1,6 +1,4 @@
-package zakharvoit.com.foodhackapp.ingredientchoose.api
-
-import zakharvoit.com.foodhackapp.model.Ingredient
+package zakharvoit.com.foodhackapp.api.ingredients
 
 class IngredientResponse(val id: Int, val name: String, val key: String)
 
