@@ -19,6 +19,7 @@
         </activity>
 
         <activity android:name=".recipelist.RecipeListActivity" />
+        <activity android:name=".recipelist.RecipeListFragment" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -11,7 +11,7 @@ class RecipeListRouter(val context: Context,
     override fun showRecipes(goodIngredients: List<Int>, badIngredients: List<Int>) {
         // TODO: rewrite
         presenter.setParams(goodIngredients, badIngredients)
-        val intent = Intent(context, RecipeListActivity::class.java)
+        val intent = Intent(context, RecipeListFragment::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(intent)
     }

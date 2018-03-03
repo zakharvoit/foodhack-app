@@ -9,8 +9,7 @@ abstract class BaseActivity : AppCompatActivity() {
     fun addToBackStack(fragment: Fragment, name: String) {
         supportFragmentManager
                 .beginTransaction()
-                .add(fragmentContainer, fragment)
-                .addToBackStack(name)
+                .replace(fragmentContainer, fragment)
                 .commit()
     }
 }
