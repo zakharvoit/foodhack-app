@@ -8,6 +8,7 @@ import zakharvoit.com.foodhackapp.model.IngredientChooseOption
 
 interface IngredientChooseContract {
     interface Presenter : BasePresenter<View> {
+        fun onIngredientSwiped(ingredient: Ingredient, option: IngredientChooseOption)
     }
 
     interface Interactor {

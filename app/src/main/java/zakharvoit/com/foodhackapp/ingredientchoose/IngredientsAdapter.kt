@@ -29,4 +29,6 @@ class IngredientsAdapter(context: Context) : ArrayAdapter<Ingredient>(context, 0
         text.text = getItem(position).title
         return view
     }
+
+    operator fun get(i: Int): Ingredient = getItem(i)
 }

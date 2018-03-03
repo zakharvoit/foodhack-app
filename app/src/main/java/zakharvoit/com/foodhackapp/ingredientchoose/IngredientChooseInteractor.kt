@@ -14,6 +14,5 @@ class IngredientChooseInteractor(val api: IngredientsApi) : IngredientChooseCont
     }
 
     override fun setIngredientChooseOption(ingredient: Ingredient, option: IngredientChooseOption) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
