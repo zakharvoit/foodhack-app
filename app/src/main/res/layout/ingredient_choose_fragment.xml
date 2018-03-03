@@ -3,11 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="viewModel"
-            type="zakharvoit.com.foodhackapp.ingredientchoose.IngredientChooseViewModel" />
-    </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,20 +31,14 @@
             app:layout_constraintGuide_percent="0.7"
             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{viewModel.ingredient != null ? viewModel.ingredient.title : null}"/>
-
-        <ImageView
-            android:id="@+id/ingredient_picure_image"
+        <com.mindorks.placeholderview.PlaceHolderView
+            android:id="@+id/ingredient_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:imageDrawable="@{viewModel.ingredient == null ? null : viewModel.ingredient.image}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/button_position_guideline" />
+            app:layout_constraintBottom_toTopOf="@id/button_position_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/show_recipes_button"

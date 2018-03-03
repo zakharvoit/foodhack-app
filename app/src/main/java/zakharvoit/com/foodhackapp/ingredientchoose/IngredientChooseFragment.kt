@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.mindorks.placeholderview.PlaceHolderView
 import org.koin.android.ext.android.inject
 import zakharvoit.com.foodhackapp.R
 import zakharvoit.com.foodhackapp.databinding.IngredientChooseFragmentBinding
@@ -14,30 +15,32 @@ import zakharvoit.com.foodhackapp.model.Ingredient
 
 class IngredientChooseFragment : Fragment(), IngredientChooseContract.View {
     override val presenter by inject<IngredientChooseContract.Presenter>()
-    private val viewModel = IngredientChooseViewModel()
+    private lateinit var ingredientView: PlaceHolderView
 
     init {
         presenter.view = this
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
         val binding: IngredientChooseFragmentBinding = DataBindingUtil.inflate(
                 inflater, R.layout.ingredient_choose_fragment, container, false)
-        binding.viewModel = viewModel
         return binding.root
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        ingredientView = view.findViewById(R.id.ingredient_view)
         presenter.start()
     }
 
     override fun setIngredient(ingredient: Ingredient) {
-        viewModel.isLoading = false
-        viewModel.ingredient = ingredient
+        ingredientView.addView(IngredientItemView(context!!, ingredientView, ingredient))
+        ingredientView.addView(IngredientItemView(context!!, ingredientView, ingredient))
+        ingredientView.addView(IngredientItemView(context!!, ingredientView, ingredient))
+        ingredientView.addView(IngredientItemView(context!!, ingredientView, ingredient))
     }
 
     override fun onError(text: String) {

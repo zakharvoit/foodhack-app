@@ -8,7 +8,8 @@ import java.io.InputStream
 import java.net.URL
 
 class IngredientChooseMockInteractor : IngredientChooseContract.Interactor {
-    private val testImageUrl = "https://upload.wikimedia.org/wikipedia/commons/c/c4/PM5544_with_non-PAL_signals.png"
+//    private val testImageUrl = "http://fitexpert.biz/wp-content/uploads/2017/02/krasnoe-miaso.jpg"
+    private val testImageUrl = "http://lenagold.ru/fon/clipart/m/mjas/mjaso18.jpg"
 
     override fun getNewRandomIngredient(): Single<Ingredient> {
         return Single.fromCallable {
