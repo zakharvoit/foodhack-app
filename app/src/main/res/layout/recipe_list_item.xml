@@ -16,32 +16,73 @@
         
         <android.support.constraint.Guideline
             android:id="@+id/image_end_guideline"
+            android:layout_margin="2dp"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.2"/>
+            app:layout_constraintGuide_percent="0.3"/>
 
         <ImageView
+            android:id="@+id/recipe_image_view"
             android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_margin="1dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="85dp"
+            android:layout_margin="6dp"
+            android:src="@{viewModel.recipe.imageUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/image_end_guideline"
-            android:src="@{viewModel.recipe.imageUrl}"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/recipe_header_text_view"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="8dp"
-            android:layout_marginStart="2dp"
+            android:layout_height="35dp"
+            android:layout_margin="4dp"
             android:theme="@style/TextHeaderTheme"
             android:text="@{viewModel.recipe.title}"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/image_end_guideline"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/cook_time_icon"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_alarm"
+            app:layout_constraintStart_toStartOf="@id/recipe_header_text_view"
+            app:layout_constraintTop_toBottomOf="@id/recipe_header_text_view"
+            app:layout_constraintEnd_toStartOf="@id/recipe_detail_text_view"
+            />
+
+        <TextView
+            android:id="@+id/recipe_detail_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.cookTimeMinutes}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cook_time_icon"
+            app:layout_constraintTop_toBottomOf="@id/recipe_header_text_view"
+            app:layout_constraintBottom_toBottomOf="@id/cook_time_icon" />
+
+        <ImageView
+            android:id="@+id/energy_icon_image_view"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_energy"
+            app:layout_constraintStart_toEndOf="@id/recipe_detail_text_view"
+            app:layout_constraintTop_toBottomOf="@id/recipe_header_text_view"
+            app:layout_constraintEnd_toStartOf="@id/energy_text_view"
+            />
+
+        <TextView
+            android:id="@+id/energy_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.cookTimeMinutes}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/energy_icon_image_view"
+            app:layout_constraintTop_toBottomOf="@id/recipe_header_text_view"
+            app:layout_constraintBottom_toBottomOf="@id/energy_icon_image_view" />
+
     </android.support.constraint.ConstraintLayout>
 </layout>

@@ -2,9 +2,9 @@ package zakharvoit.com.foodhackapp.api.dishes
 
 class EnergyValue(
         val carbs: Double,
-        fats: Double,
-        protein: Double,
-        calories: Double)
+        val fats: Double,
+        val protein: Double,
+        val calories: Double)
 
 class Dish(
         val name: String,
