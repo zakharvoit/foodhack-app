@@ -81,5 +81,18 @@
             app:layout_constraintStart_toEndOf="@id/detail_carb_text_view"
             />
 
-        </android.support.constraint.ConstraintLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/detail_ingredients_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_protein_text_view" />
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/detail_step_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_ingredients_list" />
+    </android.support.constraint.ConstraintLayout>
 </layout>

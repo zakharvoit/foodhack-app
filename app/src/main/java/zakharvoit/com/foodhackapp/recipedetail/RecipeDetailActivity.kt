@@ -3,6 +3,8 @@ package zakharvoit.com.foodhackapp.recipedetail
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import zakharvoit.com.foodhackapp.R
 import zakharvoit.com.foodhackapp.common.BaseActivity
@@ -22,6 +24,22 @@ class RecipeDetailActivity : AppCompatActivity() {
         val recipe = intent.getParcelableExtra<Recipe>("recipe")
         viewModel.recipeInfo = recipe
         binding.viewModel = viewModel
-        setContentView(binding.root)
+        setContentView(binding.root);
+
+        {
+            val ingredientsList = findViewById<RecyclerView>(R.id.detail_ingredients_list)
+            val layout = LinearLayoutManager(this)
+            ingredientsList.layoutManager = layout
+            val ingredientsAdapter = IngredientListAdapter(recipe.ingredients.map { i -> i.title })
+            ingredientsList.adapter = ingredientsAdapter
+        }();
+
+        {
+            val stepList = findViewById<RecyclerView>(R.id.detail_step_list)
+            val layout = LinearLayoutManager(this)
+            stepList.layoutManager = layout
+            val adapter = StepListAdapter(recipe.steps)
+            stepList.adapter = adapter
+        }()
     }
 }

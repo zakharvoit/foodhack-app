@@ -11,5 +11,7 @@ class Recipe (
         val cookTimeMinutes: Int,
         val imageUrl: String,
         val energyValue: EnergyValue,
-        val missingIngredients: Int
+        val missingIngredients: Int,
+        val ingredients: List<Ingredient>,
+        val steps: List<String>
 ) : Parcelable
