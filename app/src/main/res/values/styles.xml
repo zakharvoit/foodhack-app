@@ -14,7 +14,8 @@
         <item name="android:textSize">17sp</item>
     </style>
 
-    <style name="TextIngredientLabelTheme" parent="AppTheme">
+    <style name="TextBigLabelTheme" parent="AppTheme">
+        <item name="android:layout_margin">40dp</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">35sp</item>
         <!--<item name="android:textStyle"></item>-->

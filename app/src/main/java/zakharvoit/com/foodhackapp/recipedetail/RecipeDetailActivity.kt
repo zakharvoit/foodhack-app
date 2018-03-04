@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import zakharvoit.com.foodhackapp.R
 import zakharvoit.com.foodhackapp.common.BaseActivity
 import zakharvoit.com.foodhackapp.databinding.RecipeDetailActivityBinding
+import zakharvoit.com.foodhackapp.model.Recipe
 
 class RecipeDetailActivity : AppCompatActivity() {
     private val viewModel = RecipeDetailViewModel()
@@ -17,6 +18,9 @@ class RecipeDetailActivity : AppCompatActivity() {
         val binding: RecipeDetailActivityBinding = DataBindingUtil.inflate(
                 LayoutInflater.from(this), R.layout.recipe_detail_activity,
                 null, false)
+
+        val recipe = intent.getParcelableExtra<Recipe>("recipe")
+        viewModel.recipeInfo = recipe
         binding.viewModel = viewModel
         setContentView(binding.root)
     }

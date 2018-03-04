@@ -8,7 +8,7 @@ import zakharvoit.com.foodhackapp.R
 import zakharvoit.com.foodhackapp.databinding.RecipeListItemBinding
 import zakharvoit.com.foodhackapp.model.Recipe
 
-class RecipeListAdapter() : RecyclerView.Adapter<RecipeListAdapter.ViewHolder>() {
+class RecipeListAdapter(val router: RecipeListContract.Router) : RecyclerView.Adapter<RecipeListAdapter.ViewHolder>() {
     val isLoading = true
     var list = ArrayList<Recipe>()
 
@@ -17,6 +17,8 @@ class RecipeListAdapter() : RecyclerView.Adapter<RecipeListAdapter.ViewHolder>()
         val holder = ViewHolder(
                 DataBindingUtil.inflate(inflater, R.layout.recipe_list_item, parent,false)
         )
+        holder.binding.root.setOnClickListener {
+            router.showRecipeDetails(holder.binding.viewModel?.recipe!!)}
         holder.binding.viewModel = RecipeListItemViewModel()
         return holder
     }

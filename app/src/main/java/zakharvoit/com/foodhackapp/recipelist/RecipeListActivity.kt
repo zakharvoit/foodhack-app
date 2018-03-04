@@ -11,7 +11,7 @@ import zakharvoit.com.foodhackapp.R
 import zakharvoit.com.foodhackapp.model.Recipe
 
 // TODO: USE FRAGMENT NOT ACTIVITY
-class RecipeListActivity : AppCompatActivity(), RecipeListContract.View {
+class RecipeListActivity: AppCompatActivity(), RecipeListContract.View {
     override val presenter by inject<RecipeListContract.Presenter>()
     private lateinit var recipeListView: RecyclerView
     private lateinit var recipeListAdapter: RecipeListAdapter
@@ -29,7 +29,8 @@ class RecipeListActivity : AppCompatActivity(), RecipeListContract.View {
         setContentView(R.layout.recipe_list_fragment)
 
         recipeListView = findViewById(R.id.recipe_list_view)
-        recipeListAdapter = RecipeListAdapter()
+        val router by inject<RecipeListContract.Router>()
+        recipeListAdapter = RecipeListAdapter(router)
         val layoutManager = LinearLayoutManager(this)
         recipeListView.layoutManager = layoutManager
         recipeListView.addItemDecoration(DividerItemDecoration(this,

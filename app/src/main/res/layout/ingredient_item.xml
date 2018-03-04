@@ -39,16 +39,12 @@
 
                 <TextView
                     android:id="@+id/ingredient_title"
-                    android:theme="@style/TextIngredientLabelTheme"
+                    android:theme="@style/TextBigLabelTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginRight="40dp"/>
+                    />
 
             </android.support.constraint.ConstraintLayout>
         </RelativeLayout>

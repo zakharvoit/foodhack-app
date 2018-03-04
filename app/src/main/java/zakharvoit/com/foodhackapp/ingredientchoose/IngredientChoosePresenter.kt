@@ -1,9 +1,11 @@
 package zakharvoit.com.foodhackapp.ingredientchoose
 
+import android.content.Intent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import zakharvoit.com.foodhackapp.model.Ingredient
 import zakharvoit.com.foodhackapp.model.IngredientChooseOption
+import zakharvoit.com.foodhackapp.model.Recipe
 import zakharvoit.com.foodhackapp.recipelist.RecipeListContract
 
 private const val INGREDIENTS_THRESHOLD = 5

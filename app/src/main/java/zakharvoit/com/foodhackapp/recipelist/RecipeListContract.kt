@@ -24,5 +24,6 @@ interface RecipeListContract {
     interface Router {
         fun showRecipes(goodIngredients: List<Int>,
                         badIngredients: List<Int>)
+        fun showRecipeDetails(recipe: Recipe)
     }
 }

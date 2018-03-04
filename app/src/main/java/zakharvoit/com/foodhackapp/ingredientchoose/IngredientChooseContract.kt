@@ -5,6 +5,7 @@ import zakharvoit.com.foodhackapp.common.BasePresenter
 import zakharvoit.com.foodhackapp.common.BaseView
 import zakharvoit.com.foodhackapp.model.Ingredient
 import zakharvoit.com.foodhackapp.model.IngredientChooseOption
+import zakharvoit.com.foodhackapp.model.Recipe
 
 interface IngredientChooseContract {
     interface Presenter : BasePresenter<View> {
