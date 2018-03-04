@@ -6,6 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorBlack"
         android:layout_margin="0dp">
 
         <com.yuyakaido.android.cardstackview.CardStackView
@@ -13,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:stackFrom="bottom"
+            app:topOverlay="@layout/right_overlay"
             app:bottomOverlay="@layout/bottom_overlay"
             app:leftOverlay="@layout/left_overlay"
             app:rightOverlay="@layout/right_overlay" >

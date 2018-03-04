@@ -64,7 +64,7 @@ class IngredientChooseFragment : Fragment(), IngredientChooseContract.View, Card
             SwipeDirection.Left -> IngredientChooseOption.SKIP
             SwipeDirection.Right -> IngredientChooseOption.GOOD
             SwipeDirection.Bottom -> IngredientChooseOption.BAD
-            else -> TODO()
+            else -> IngredientChooseOption.GOOD
         }
         presenter.onIngredientSwiped(ingredient,option)
     }
