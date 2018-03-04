@@ -11,7 +11,9 @@ class IngredientChooseInteractor(val api: FoodhackApi) : IngredientChooseContrac
     private val dislikedIngredients = ArrayList<Ingredient>()
 
     override fun getRandomIngredients(): Single<List<Ingredient>> {
-        return api.getIngredients(IngredientsRequest(listOf(), 10)).map{ response ->
+        val all = ArrayList(likedIngredients)
+        all.addAll(dislikedIngredients)
+        return api.getIngredients(IngredientsRequest(all.map(Ingredient::id), 10)).map{ response ->
             response.ingredients.map { i -> Ingredient(i.id, i.name, i.img) }
         }
     }

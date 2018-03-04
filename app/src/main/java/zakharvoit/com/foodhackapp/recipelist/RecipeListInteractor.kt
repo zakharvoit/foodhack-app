@@ -9,7 +9,7 @@ import zakharvoit.com.foodhackapp.model.Recipe
 
 class RecipeListInteractor(val api: FoodhackApi) : RecipeListContract.Interactor {
     override fun fetchRecipes(goodIngredients: List<Int>, badIngredients: List<Int>): Single<List<Recipe>> {
-        return api.getDishes(DishesRequest(goodIngredients))
+        return api.getDishes(DishesRequest(goodIngredients, badIngredients))
                 .map { response ->
                     response.dishes.map { dish ->
                         Recipe(dish.name, dish.url, dish.timeCooking, dish.img,
