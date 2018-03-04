@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.request.RequestOptions
 import zakharvoit.com.foodhackapp.R
 import zakharvoit.com.foodhackapp.model.Ingredient
 
@@ -25,8 +27,13 @@ class IngredientsAdapter(context: Context) : ArrayAdapter<Ingredient>(context, 0
         val image = view.findViewById<ImageView>(R.id.ingredient_image)
         val text = view.findViewById<TextView>(R.id.ingredient_title)
 
-        Glide.with(context).load(getItem(position).url).into(image)
-        text.text = getItem(position).title
+        Glide.with(context)
+                .load(getItem(position).url)
+                .apply(RequestOptions()
+                        .override(image.width, image.height)
+                        .centerCrop())
+                .into(image)
+        text.text = getItem(position).title.toUpperCase()
         return view
     }
 

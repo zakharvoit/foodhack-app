@@ -3,54 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
-    <android.support.constraint.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.constraint.Guideline
-            android:id="@+id/button_position_guideline"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.8" />
-
-        <android.support.constraint.Guideline
-            android:id="@+id/left_button_pos_guideline"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.3"
-            />
-
-        <android.support.constraint.Guideline
-            android:id="@+id/right_button_pos_guideline"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.7"
-            />
-
         <com.yuyakaido.android.cardstackview.CardStackView
             android:id="@+id/ingredient_item_card_stack"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/button_position_guideline"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:stackFrom="bottom" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:stackFrom="bottom"
+            app:bottomOverlay="@layout/bottom_overlay"
+            app:leftOverlay="@layout/left_overlay"
+            app:rightOverlay="@layout/right_overlay" >
+        </com.yuyakaido.android.cardstackview.CardStackView>
 
-        <Button
-            android:id="@+id/show_recipes_button"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/get_recipe_list"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintTop_toBottomOf="@id/button_position_guideline"
-            app:layout_constraintStart_toEndOf="@id/left_button_pos_guideline"
-            app:layout_constraintEnd_toStartOf="@id/right_button_pos_guideline"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/show_recipes_button"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:text="@string/get_recipe_list"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="12dp"
+                />
+        </android.support.constraint.ConstraintLayout>
 
-    </android.support.constraint.ConstraintLayout>
+    </RelativeLayout>
 </layout>

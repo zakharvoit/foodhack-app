@@ -10,13 +10,12 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardCornerRadius="6dp"
-        app:cardElevation="6dp" >
+        android:layout_height="match_parent" >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <ImageView
                 android:id="@+id/ingredient_image"
                 android:layout_width="match_parent"
@@ -24,17 +23,34 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 />
-            <TextView
-                android:id="@+id/ingredient_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@id/ingredient_image"
-                android:layout_alignLeft="@id/ingredient_image"
-                android:layout_alignRight="@+id/ingredient_image"
-                android:layout_alignEnd="@+id/ingredient_image"
-                android:gravity="center"
-                android:layout_centerVertical="true"
-                />
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_margin="0dp"
+                    android:src="@drawable/gradient" />
+
+                <TextView
+                    android:id="@+id/ingredient_title"
+                    android:theme="@style/TextIngredientLabelTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginRight="40dp"/>
+
+            </android.support.constraint.ConstraintLayout>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

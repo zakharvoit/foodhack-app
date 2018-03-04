@@ -12,7 +12,7 @@ class IngredientChooseInteractor(val api: FoodhackApi) : IngredientChooseContrac
 
     override fun getRandomIngredients(): Single<List<Ingredient>> {
         return api.getIngredients(IngredientsRequest(listOf(), 10)).map{ response ->
-            response.ingredients.map { i -> Ingredient(i.id, i.name, "http://lenagold.ru/fon/clipart/m/mjas/mjaso18.jpg") }
+            response.ingredients.map { i -> Ingredient(i.id, i.name, i.img) }
         }
     }
     override fun setIngredientChooseOption(ingredient: Ingredient, option: IngredientChooseOption) {
