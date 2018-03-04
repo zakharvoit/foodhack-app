@@ -17,9 +17,14 @@ class RecipeListItemViewModel : BaseObservable() {
         @Bindable get() = recipe?.energyValue?.prettyPrint() ?: ""
 
     val cookTimeMinutes: String
-    @Bindable get() = recipe?.cookTimeMinutes?.asMinutes() ?: ""
+        @Bindable get() = recipe?.cookTimeMinutes?.asMinutes() ?: ""
+
+    val calories: String
+        @Bindable get() = recipe?.energyValue?.calories?.asCalories() ?: ""
 }
 
 private fun Int.asMinutes(): String = this.toString() + " мин"
+
+private fun Double.asCalories(): String = this.toString() + " Ккал"
 
 private fun EnergyValue.prettyPrint(): String = "Белки: " + protein + "Ккал: " + calories
