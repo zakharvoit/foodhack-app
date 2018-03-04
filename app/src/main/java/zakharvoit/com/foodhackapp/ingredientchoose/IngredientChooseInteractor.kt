@@ -23,7 +23,8 @@ class IngredientChooseInteractor(val api: FoodhackApi) : IngredientChooseContrac
         }
     }
 
-    override fun getLikesInfo(): Single<Pair<List<Int>, List<Int>>> = Single.just(Pair(
-            likedIngredients.map(Ingredient::id) as List<Int>,
-            dislikedIngredients.map(Ingredient::id) as List<Int>))
+    override fun getLikesInfo(): Single<Pair<List<Int>, List<Int>>> =
+            Single.just(Pair(
+                    likedIngredients.map(Ingredient::id),
+                    dislikedIngredients.map(Ingredient::id)))
 }

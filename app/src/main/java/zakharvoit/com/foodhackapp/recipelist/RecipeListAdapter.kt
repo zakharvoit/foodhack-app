@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import zakharvoit.com.foodhackapp.R
 import zakharvoit.com.foodhackapp.databinding.RecipeListItemBinding
-import zakharvoit.com.foodhackapp.model.RecipePreview
+import zakharvoit.com.foodhackapp.model.Recipe
 
 class RecipeListAdapter() : RecyclerView.Adapter<RecipeListAdapter.ViewHolder>() {
     val isLoading = true
-    var list = ArrayList<RecipePreview>()
+    var list = ArrayList<Recipe>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)

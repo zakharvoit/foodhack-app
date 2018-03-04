@@ -3,11 +3,11 @@ package zakharvoit.com.foodhackapp.recipelist
 import io.reactivex.Single
 import zakharvoit.com.foodhackapp.common.BasePresenter
 import zakharvoit.com.foodhackapp.common.BaseView
-import zakharvoit.com.foodhackapp.model.RecipePreview
+import zakharvoit.com.foodhackapp.model.Recipe
 
 interface RecipeListContract {
     interface View : BaseView<Presenter> {
-        fun setRecipes(recipes: List<RecipePreview>)
+        fun setRecipes(recipes: List<Recipe>)
         fun onError(error: String)
     }
 
@@ -18,7 +18,7 @@ interface RecipeListContract {
 
     interface Interactor {
         fun fetchRecipes(goodIngredients: List<Int>,
-                         badIngredients: List<Int>): Single<List<RecipePreview>>
+                         badIngredients: List<Int>): Single<List<Recipe>>
     }
 
     interface Router {

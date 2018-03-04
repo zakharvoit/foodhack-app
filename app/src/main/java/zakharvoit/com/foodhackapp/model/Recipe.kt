@@ -6,10 +6,11 @@ class RecipeIngredient(
         val title: String
 )
 
-class RecipePreview(
+class Recipe(
         val title: String,
         val url: String,
         val cookTimeMinutes: Int,
         val imageUrl: String,
-        val energyValue: EnergyValue
+        val energyValue: EnergyValue,
+        val missingIngredients: Int
 )

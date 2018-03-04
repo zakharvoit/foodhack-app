@@ -4,14 +4,21 @@ import android.databinding.BaseObservable
 import android.databinding.Bindable
 import zakharvoit.com.foodhackapp.BR
 import zakharvoit.com.foodhackapp.api.dishes.EnergyValue
-import zakharvoit.com.foodhackapp.model.RecipePreview
+import zakharvoit.com.foodhackapp.model.Recipe
 
 
 
 class RecipeListItemViewModel : BaseObservable() {
-    var recipe: RecipePreview? = null
+    var recipe: Recipe? = null
         @Bindable get() = field
-        set(value) { field = value; notifyPropertyChanged(BR.recipe) }
+        set(value) {
+            field = value;
+            notifyPropertyChanged(BR.recipe)
+            notifyPropertyChanged(BR.energyDetail)
+            notifyPropertyChanged(BR.cookTimeMinutes)
+            notifyPropertyChanged(BR.calories)
+            notifyPropertyChanged(BR.missingIngredients)
+        }
 
     val energyDetail: String
         @Bindable get() = recipe?.energyValue?.prettyPrint() ?: ""
@@ -21,7 +28,13 @@ class RecipeListItemViewModel : BaseObservable() {
 
     val calories: String
         @Bindable get() = recipe?.energyValue?.calories?.asCalories() ?: ""
+
+    val missingIngredients: String
+        @Bindable get() = recipe?.missingIngredients?.asMissing() ?: ""
+
 }
+
+private fun Int.asMissing(): String = "Не хватает ингредиентов: " + this
 
 private fun Int.asMinutes(): String = this.toString() + " мин"
 

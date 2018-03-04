@@ -2,7 +2,7 @@ package zakharvoit.com.foodhackapp.recipelist
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import zakharvoit.com.foodhackapp.model.RecipePreview
+import zakharvoit.com.foodhackapp.model.Recipe
 
 class RecipeListPresenter(val interactor: RecipeListContract.Interactor):
         RecipeListContract.Presenter {
@@ -10,7 +10,7 @@ class RecipeListPresenter(val interactor: RecipeListContract.Interactor):
     override lateinit var view: RecipeListContract.View
     private lateinit var goodIngredients: List<Int>
     private lateinit var badIngredients: List<Int>
-    private val recipes = ArrayList<RecipePreview>()
+    private val recipes = ArrayList<Recipe>()
 
     override fun start() {
         fetchRecipes()

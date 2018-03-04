@@ -82,6 +82,14 @@
             app:layout_constraintStart_toEndOf="@id/energy_icon_image_view"
             app:layout_constraintTop_toBottomOf="@id/recipe_header_text_view"
             app:layout_constraintBottom_toBottomOf="@id/energy_icon_image_view" />
+        <TextView
+            android:id="@+id/missing_ingredients"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.missingIngredients}"
+            app:layout_constraintStart_toStartOf="@id/recipe_header_text_view"
+            app:layout_constraintTop_toBottomOf="@id/energy_text_view"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>
