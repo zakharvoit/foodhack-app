@@ -31,6 +31,7 @@ class RecipeDetailActivity : AppCompatActivity() {
             val layout = LinearLayoutManager(this)
             ingredientsList.layoutManager = layout
             val ingredientsAdapter = IngredientListAdapter(recipe.ingredients.map { i -> i.title })
+            ingredientsList.isNestedScrollingEnabled = false
             ingredientsList.adapter = ingredientsAdapter
         }();
 
@@ -39,6 +40,7 @@ class RecipeDetailActivity : AppCompatActivity() {
             val layout = LinearLayoutManager(this)
             stepList.layoutManager = layout
             val adapter = StepListAdapter(recipe.steps)
+            stepList.isNestedScrollingEnabled = false
             stepList.adapter = adapter
         }();
 
@@ -47,10 +49,11 @@ class RecipeDetailActivity : AppCompatActivity() {
             val proteinList = findViewById<RecyclerView>(R.id.titles_list)
             val layout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
             proteinList.layoutManager = layout
-            val adapter = EnergyListAdapter(listOf("Калории", "Белки", "Жиры", "Углеводы"))
+            val adapter = EnergyListAdapter(false, listOf("Калории", "Белки", "Жиры", "Углеводы"))
             proteinList.addItemDecoration(DividerItemDecoration(this,
                     layout.orientation))
 
+            proteinList.isNestedScrollingEnabled = false
             proteinList.adapter = adapter
         }();
 
@@ -58,7 +61,7 @@ class RecipeDetailActivity : AppCompatActivity() {
             val fatList = findViewById<RecyclerView>(R.id.values_list)
             val layout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
             fatList.layoutManager = layout
-            val adapter = EnergyListAdapter(listOf(
+            val adapter = EnergyListAdapter(true, listOf(
                     recipe.energyValue.calories.toString(),
                     recipe.energyValue.protein.toString(),
                     recipe.energyValue.fats.toString(),
@@ -66,6 +69,7 @@ class RecipeDetailActivity : AppCompatActivity() {
             fatList.addItemDecoration(DividerItemDecoration(this,
                     layout.orientation))
 
+            fatList.isNestedScrollingEnabled = false
             fatList.adapter = adapter
         }();
     }

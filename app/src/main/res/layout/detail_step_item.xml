@@ -2,11 +2,12 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="20dp">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/detail_step_item_text"
         android:theme="@style/TextHeaderTheme"
+        android:singleLine="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

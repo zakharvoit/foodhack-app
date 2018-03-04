@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import zakharvoit.com.foodhackapp.R
 
-class EnergyListAdapter(val list: List<String>) : RecyclerView.Adapter<EnergyListAdapter.ViewHolder>() {
+class EnergyListAdapter(val areValues: Boolean, val list: List<String>) : RecyclerView.Adapter<EnergyListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -20,6 +20,10 @@ class EnergyListAdapter(val list: List<String>) : RecyclerView.Adapter<EnergyLis
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val textView = holder.view.findViewById<TextView>(R.id.energy_item_text)
         textView.text = list[position]
+        // oOOOooO
+//        if (areValues) {
+//            textView.setTextColor(Integer.parseInt("E18D21", 16))
+//        }
     }
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
