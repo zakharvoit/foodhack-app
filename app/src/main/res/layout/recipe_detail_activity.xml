@@ -55,6 +55,7 @@
                     android:theme="@style/TextBigLabelTheme"
                     app:layout_constraintTop_toTopOf="parent"
                     android:text="@{viewModel.recipeInfo.title}"
+                    android:layout_margin="20dp"
                     />
 
                 <android.support.v7.widget.RecyclerView

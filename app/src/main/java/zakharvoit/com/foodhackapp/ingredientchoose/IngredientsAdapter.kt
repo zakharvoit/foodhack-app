@@ -26,7 +26,7 @@ class IngredientsAdapter(context: Context) : ArrayAdapter<Ingredient>(context, 0
         val text = view.findViewById<TextView>(R.id.ingredient_title)
 
         setGoodFullScreenImage(image, context, get(position).url)
-        text.text = getItem(position).title.toUpperCase()
+        text.text = getItem(position).title
         return view
     }
 
