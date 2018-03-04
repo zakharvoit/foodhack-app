@@ -22,7 +22,7 @@ class StepListAdapter(val list: List<String>) : RecyclerView.Adapter<StepListAda
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val textView = holder.view.findViewById<TextView>(R.id.detail_step_item_text)
-        textView.text = list[position]
+        textView.text = (position + 1).toString() + ". " + list[position]
     }
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)

@@ -7,8 +7,10 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.widget.TextView
 import zakharvoit.com.foodhackapp.R
 import zakharvoit.com.foodhackapp.databinding.RecipeDetailActivityBinding
+import zakharvoit.com.foodhackapp.model.Ingredient
 import zakharvoit.com.foodhackapp.model.Recipe
 
 class RecipeDetailActivity : AppCompatActivity() {
@@ -27,12 +29,9 @@ class RecipeDetailActivity : AppCompatActivity() {
         setContentView(binding.root);
 
         {
-            val ingredientsList = findViewById<RecyclerView>(R.id.detail_ingredients_list)
-            val layout = LinearLayoutManager(this)
-            ingredientsList.layoutManager = layout
-            val ingredientsAdapter = IngredientListAdapter(recipe.ingredients.map { i -> i.title })
-            ingredientsList.isNestedScrollingEnabled = false
-            ingredientsList.adapter = ingredientsAdapter
+            val ingredientsList = findViewById<TextView>(R.id.detail_ingredients_list)
+            ingredientsList.text = recipe.ingredients.map(Ingredient::title)
+                    .joinToString(separator = ", ") + "."
         }();
 
         {
